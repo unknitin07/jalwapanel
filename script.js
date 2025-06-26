@@ -15,14 +15,15 @@ function updatePeriod() {
   const yyyy = d.getFullYear();
   const mm = String(d.getMonth() + 1).padStart(2, '0');
   const dd = String(d.getDate()).padStart(2, '0');
-  const prefix = "10001"; // Based on your pattern
+  const prefix = "10001";
 
+  // Minutes since IST midnight
   const midnight = new Date(d);
   midnight.setHours(0, 0, 0, 0);
   const minutesSinceMidnight = Math.floor((d - midnight) / (1000 * 60));
 
-  const base = 1109;
-  const suffix = base + minutesSinceMidnight;
+  // Base suffix starts at 1109 at 00:00 AM
+  const suffix = 1109 + minutesSinceMidnight;
 
   const period = `${yyyy}${mm}${dd}${prefix}${suffix}`;
   document.getElementById("period-id").textContent = `Period: #${period}`;
