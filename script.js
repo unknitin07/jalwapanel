@@ -15,18 +15,16 @@ function updatePeriod() {
   const yyyy = d.getFullYear();
   const mm = String(d.getMonth() + 1).padStart(2, '0');
   const dd = String(d.getDate()).padStart(2, '0');
-  const prefix = "1000";
+  const prefix = "10001"; // Based on your pattern
 
-  // Fixed base date for start of counter
-  const baseDate = new Date("2025-06-26T00:00:00+05:30");
-  const currentIST = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
-  );
+  const midnight = new Date(d);
+  midnight.setHours(0, 0, 0, 0);
+  const minutesSinceMidnight = Math.floor((d - midnight) / (1000 * 60));
 
-  const diffInMinutes = Math.floor((currentIST - baseDate) / (1000 * 60));
-  const periodCount = 11111 + diffInMinutes;
+  const base = 1109;
+  const suffix = base + minutesSinceMidnight;
 
-  const period = `${yyyy}${mm}${dd}${prefix}${periodCount}`;
+  const period = `${yyyy}${mm}${dd}${prefix}${suffix}`;
   document.getElementById("period-id").textContent = `Period: #${period}`;
 }
 
