@@ -1,14 +1,17 @@
-// Optional prediction fallback names if needed
+// Optional textual fallback predictions
 const predictions = [
   "Red Zone Breach",
   "Green Light Detected",
   "Violet Core Triggered",
   "System Shift: Red",
   "Signal Lock: Green",
-  "Protocol Match: Violet"
+  "Protocol Match: Violet",
+  "Override Red",
+  "HyperSync Green",
+  "Quantum Violet"
 ];
 
-// Fake logs to simulate terminal/admin activity
+// Fake terminal-style logs
 const fakeLogs = [
   "[BOOT] Initializing prediction module...",
   "[AUTH] Admin token verified successfully.",
@@ -32,7 +35,7 @@ const fakeLogs = [
   "[FINALIZE] Result framed successfully."
 ];
 
-// Optional: array of UIDs or user sessions (future use)
+// Optional: fake active user IDs
 const activeUIDs = [
   "UID_102938",
   "UID_938271",
@@ -41,7 +44,7 @@ const activeUIDs = [
   "UID_774488"
 ];
 
-// Optional: fake statuses (e.g., for showing UID status)
+// Optional: UID status tracking
 const uidStatus = {
   "UID_102938": "Active",
   "UID_938271": "Synced",
