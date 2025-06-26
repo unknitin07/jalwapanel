@@ -23,7 +23,7 @@ function updatePeriod() {
   const minutesSinceMidnight = Math.floor((d - midnight) / (1000 * 60));
 
   // Base suffix starts at 1109 at 00:00 AM
-  const suffix = 1109 + minutesSinceMidnight;
+  const suffix = 1111 + minutesSinceMidnight;
 
   const period = `${yyyy}${mm}${dd}${prefix}${suffix}`;
   document.getElementById("period-id").textContent = `Period: #${period}`;
