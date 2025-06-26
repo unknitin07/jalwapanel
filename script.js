@@ -12,16 +12,17 @@ function updatePeriod() {
   });
   const d = new Date(now);
 
-  const pad = (n, len = 2) => String(n).padStart(len, '0');
-  const period =
-    d.getFullYear() +
-    pad(d.getMonth() + 1) +
-    pad(d.getDate()) +
-    pad(d.getHours()) +
-    pad(d.getMinutes()) +
-    pad(d.getSeconds()) +
-    pad(d.getMilliseconds(), 3);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  const prefix = "100011";
 
+  const midnight = new Date(d);
+  midnight.setHours(0, 0, 0, 0);
+  const minutesSinceMidnight = Math.floor((d - midnight) / (1000 * 60));
+  const suffix = String(11100 + minutesSinceMidnight); // 11100 is the confirmed base
+
+  const period = `${yyyy}${mm}${dd}${prefix}${suffix}`;
   document.getElementById("period-id").textContent = `Period: #${period}`;
 }
 
@@ -50,6 +51,6 @@ function injectPrediction() {
 
 window.onload = () => {
   updatePanel();
-  for (let i = 0; i < 5; i++) addFakeLog(); // Load initial logs
-  setInterval(updatePanel, 60000); // every minute
+  for (let i = 0; i < 5; i++) addFakeLog();
+  setInterval(updatePanel, 60000);
 };
