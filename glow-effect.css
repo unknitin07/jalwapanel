@@ -1,0 +1,39 @@
+/* Scanline overlay */
+.overlay-scanlines::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 255, 170, 0.05) 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.4;
+  }
+}
+
+.prediction-value {
+  animation: flicker 2s infinite;
+}
+
+/* Terminal glow */
+.logs-console {
+  text-shadow: 0 0 2px var(--primary-accent), 0 0 10px var(--primary-accent-light);
+  background: rgba(0, 231, 208, 0.05);
+  backdrop-filter: blur(2px);
+}
