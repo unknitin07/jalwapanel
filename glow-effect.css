@@ -1,39 +1,45 @@
-/* Scanline overlay */
-.overlay-scanlines::before {
-  content: "";
+/* Scanline effect across screen */
+.overlay-scanlines {
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 1px,
-    rgba(0, 255, 170, 0.05) 2px
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.02) 50%,
+    transparent 50%
   );
-  pointer-events: none;
-  z-index: 1;
+  background-size: 100% 4px;
+  z-index: 999;
   mix-blend-mode: overlay;
+  opacity: 0.2;
+  animation: flicker 1s infinite;
 }
 
-/* Flicker animation */
+/* Subtle flicker to enhance terminal look */
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-  }
-  20%, 22%, 24%, 55% {
-    opacity: 0.4;
-  }
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
 }
 
-.prediction-value {
-  animation: flicker 2s infinite;
+/* Glow effect utility (can be reused) */
+.glow {
+  text-shadow: 0 0 5px var(--primary-accent-light),
+               0 0 10px var(--primary-accent),
+               0 0 15px var(--primary-accent-light);
 }
 
-/* Terminal glow */
-.logs-console {
-  text-shadow: 0 0 2px var(--primary-accent), 0 0 10px var(--primary-accent-light);
-  background: rgba(0, 231, 208, 0.05);
-  backdrop-filter: blur(2px);
+/* Optional glitch effect */
+@keyframes glitch {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 0); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.glitchy {
+  animation: glitch 0.3s infinite;
 }
