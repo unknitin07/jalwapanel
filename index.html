@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secret Prediction Panel</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="glow-effects.css" />
+  <script defer src="data.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="overlay-scanlines"></div>
+  <div class="main-panel">
+    <header>
+      <h1>🛡️ Secret Prediction Panel</h1>
+      <p id="period-id">Period: #0000</p>
+    </header>
+
+    <section class="prediction-section">
+      <div class="prediction-label">Next Prediction:</div>
+      <div class="prediction-value" id="prediction-value">--</div>
+    </section>
+
+    <section class="logs-section">
+      <div class="logs-title">System Logs</div>
+      <div class="logs-console" id="logs-console">
+        <div class="log-entry">[SYS] Booting prediction core...</div>
+      </div>
+    </section>
+
+    <section class="admin-panel">
+      <input type="text" placeholder="Enter UID" class="uid-input" />
+      <button class="admin-button">🔐 Admin Inject</button>
+    </section>
+  </div>
+</body>
+</html>
