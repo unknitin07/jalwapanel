@@ -1,0 +1,123 @@
+:root {
+  --bg-dark: #070A1F;
+  --bg-darker: #050817;
+  --primary-accent: #00E7D0;
+  --primary-accent-light: #00FFAA;
+  --text-light: #FFFFFF;
+  --text-gray: #CCCCFF;
+  --danger: #FF3B3B;
+  --violet: #B266FF;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.main-panel {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: var(--bg-darker);
+  box-shadow: 0 0 20px var(--primary-accent);
+  border: 2px solid var(--primary-accent-light);
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: var(--primary-accent);
+  text-shadow: 0 0 5px var(--primary-accent-light);
+}
+
+#period-id {
+  font-size: 1rem;
+  color: var(--text-gray);
+  margin-top: 5px;
+}
+
+.prediction-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.prediction-label {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+}
+
+.prediction-value {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-accent-light);
+  text-shadow: 0 0 10px var(--primary-accent-light);
+  margin-top: 0.5rem;
+}
+
+.logs-section {
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border: 1px solid var(--primary-accent);
+  height: 200px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.logs-title {
+  margin-bottom: 0.5rem;
+  color: var(--text-gray);
+  font-weight: bold;
+}
+
+.log-entry {
+  margin-bottom: 5px;
+  color: var(--primary-accent-light);
+  white-space: pre-wrap;
+}
+
+.admin-panel {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.uid-input {
+  padding: 0.5rem;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--primary-accent-light);
+  color: var(--text-light);
+  font-family: inherit;
+}
+
+.admin-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-accent);
+  border: none;
+  color: var(--bg-dark);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--primary-accent-light);
+  transition: background 0.3s ease;
+}
+
+.admin-button:hover {
+  background-color: var(--primary-accent-light);
+}
+
+@media (max-width: 600px) {
+  .main-panel {
+    padding: 1rem;
+  }
+  .prediction-value {
+    font-size: 2rem;
+  }
+  }
