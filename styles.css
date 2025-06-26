@@ -1,6 +1,6 @@
 :root { --bg-dark: #070A1F; --bg-darker: #050817; --primary-accent: #00E7D0; --primary-accent-light: #00FFAA; --text-light: #FFFFFF; --text-gray: #CCCCFF; --danger: #FF3B3B; --violet: #B266FF; }
 
-body { margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-light); font-family: 'Courier New', monospace; overflow: hidden; min-height: 100vh; display: flex; justify-content: center; align-items: center; zoom: 1; font-weight: bold; }
+body { margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-light); font-family: 'Share Tech Mono', monospace; overflow: hidden; min-height: 100vh; display: flex; justify-content: center; align-items: center; zoom: 1; font-weight: bold; }
 
 .center-wrapper { display: flex; justify-content: center; align-items: center; padding: 1rem; width: 100vw; height: 100vh; box-sizing: border-box; }
 
