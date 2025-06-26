@@ -45,10 +45,11 @@ function injectPrediction() {
   currentImageIndex++;
   if (currentImageIndex > 9) currentImageIndex = 1;
   generatePrediction();
-  addFakeLog(`[ADMIN] Prediction image updated to ${currentImageIndex}.png`);
+  addFakeLog(`[ADMIN] Injected prediction image ${currentImageIndex}.png`);
 }
 
 window.onload = () => {
   updatePanel();
+  for (let i = 0; i < 5; i++) addFakeLog(); // Load initial logs
   setInterval(updatePanel, 60000); // every minute
 };
